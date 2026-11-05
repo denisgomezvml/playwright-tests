@@ -21,7 +21,7 @@ npx playwright install chromium webkit
 
 ## Running tests
 
-Playwright starts the local server (http-server) before the run, so no manual setup is needed.
+`npm test` first builds the site with webpack (`pretest`), then Playwright starts the local server (http-server) on `site/`. The UI and headed scripts also build first. If you run `npx playwright test` directly, run `npm run build` beforehand after changing anything in `src/`.
 
 ```bash
 # All tests, headless
@@ -45,6 +45,14 @@ npx playwright test -g "success message"
 
 Available projects (defined in `playwright.config.ts`): `desktop` (runs `desktop.spec.ts` and `accessibility.spec.ts`) and `mobile` (runs `mobile.spec.ts`).
 
+## Building the site
+
+Edit the files in `src/`. `site/` is generated, cleaned on every build and not committed; CI builds it before running the tests.
+
+```bash
+npm run build
+```
+
 ## Reports
 
 After a run, open the HTML report. Traces are recorded on the first retry.
@@ -57,11 +65,13 @@ npx playwright show-report
 
 ```text
 .
-├── site/                  # Static HTML site under test
+├── src/                   # Site sources (index.html, main.js, styles.css)
+├── site/                  # Webpack build output, served by the tests
 ├── tests/
 │   ├── desktop.spec.ts    # Desktop scenarios
 │   ├── mobile.spec.ts     # Mobile viewport scenarios
 │   └── accessibility.spec.ts  # axe-core WCAG audits
+├── webpack.config.js      # Builds src/ into site/
 ├── playwright.config.ts   # Projects, devices, web server, reporters
 ├── tsconfig.json
 └── package.json
@@ -80,6 +90,7 @@ npx playwright show-report
 | [Playwright](https://playwright.dev/) | Test runner and browser automation |
 | [TypeScript](https://www.typescriptlang.org/) | Typed test code |
 | [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm) | Accessibility audits |
+| [webpack](https://webpack.js.org/) | Bundles `src/` into `site/` |
 | [http-server](https://www.npmjs.com/package/http-server) | Serves the static site locally |
 
 ## Troubleshooting
