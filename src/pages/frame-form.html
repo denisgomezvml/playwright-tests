@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newsletter signup</title>
+</head>
+<body class="frame-body">
+  <main>
+    <form id="newsletter-form" novalidate>
+      <label for="newsletter-email">Email</label>
+      <input id="newsletter-email" name="email" type="email" autocomplete="email" required>
+      <p id="newsletter-error" class="frame-error" role="alert"></p>
+      <button id="newsletter-submit" class="btn" type="submit">Subscribe</button>
+    </form>
+    <p id="newsletter-result" class="frame-result" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>
