@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A registration form used to practice Playwright form testing.">
+  <title>Form Demo - Playwright Test Site</title>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">Pastel Test Site</a>
+    <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
+    <div id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="form.html" aria-current="page">Form demo</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Registration form</h1>
+    <p class="lead">Fill in the form to try validation, selects, radio buttons and checkboxes.</p>
+
+    <section class="panel">
+      <form id="registration-form" novalidate>
+        <label for="full-name">Full name</label>
+        <input id="full-name" name="full-name" type="text" autocomplete="name" aria-describedby="full-name-error">
+        <p id="full-name-error" class="error-text"></p>
+
+        <label for="reg-email">Email</label>
+        <input id="reg-email" name="email" type="email" autocomplete="email" aria-describedby="reg-email-error">
+        <p id="reg-email-error" class="error-text"></p>
+
+        <label for="country">Country</label>
+        <select id="country" name="country" aria-describedby="country-error">
+          <option value="">Select a country</option>
+          <option value="mx">Mexico</option>
+          <option value="co">Colombia</option>
+          <option value="es">Spain</option>
+        </select>
+        <p id="country-error" class="error-text"></p>
+
+        <fieldset>
+          <legend>Plan</legend>
+          <label class="choice" for="plan-free"><input id="plan-free" name="plan" type="radio" value="free" checked> Free</label>
+          <label class="choice" for="plan-pro"><input id="plan-pro" name="plan" type="radio" value="pro"> Pro</label>
+        </fieldset>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+
+        <label class="choice" for="terms">
+          <input id="terms" name="terms" type="checkbox" aria-describedby="terms-error"> I accept the terms
+        </label>
+        <p id="terms-error" class="error-text"></p>
+
+        <button id="register-btn" type="submit">Register</button>
+      </form>
+      <p id="registration-result" class="form-success" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>

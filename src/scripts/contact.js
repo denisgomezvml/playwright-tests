@@ -1,12 +1,3 @@
-import './styles.css';
-
-const toggle = document.getElementById('toggle-menu');
-const links = document.getElementById('nav-links');
-toggle.addEventListener('click', () => {
-  const open = links.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(open));
-});
-
 document.getElementById('contact-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
