@@ -7,7 +7,8 @@
     "test:ui": "npm run build && playwright test --ui",
     "test:headed": "npm run build && playwright test --headed",
     "build": "webpack",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "dev": "webpack serve"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
@@ -18,6 +19,7 @@
     "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.10.2",
     "webpack": "^5.112.2",
-    "webpack-cli": "^7.3.1"
+    "webpack-cli": "^7.3.1",
+    "webpack-dev-server": "^6.1.0"
   }
 }

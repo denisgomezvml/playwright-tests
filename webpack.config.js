@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
-  mode: 'production',
+  mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
   entry: {
     main: './src/scripts/main.js',
     contact: './src/scripts/contact.js',
@@ -19,6 +19,13 @@ export default {
   },
   module: {
     rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }],
+  },
+  devServer: {
+    port: 3000,
+    open: true,
+    hot: false,
+    liveReload: true,
+    watchFiles: ['src/**/*'],
   },
   plugins: [
     new HtmlWebpackPlugin({
