@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A table with pagination, column sorting and text filtering.">
+  <meta name="nav-label" content="Table">
+  <meta name="nav-order" content="50">
+  <meta name="home-button" content="Open table">
+  <title>Table - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Employees table</h1>
+    <p class="lead">Filter, sort and paginate a table of 23 employees.</p>
+
+    <section class="panel">
+      <label for="table-filter">Filter</label>
+      <input id="table-filter" type="search" autocomplete="off" placeholder="Type to filter rows">
+
+      <div class="table-scroll">
+        <table id="employees-table">
+          <caption>Employees</caption>
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="none"><button type="button" class="sort-btn" data-key="name">Name <span aria-hidden="true" class="sort-icon"></span></button></th>
+              <th scope="col" aria-sort="none"><button type="button" class="sort-btn" data-key="role">Role <span aria-hidden="true" class="sort-icon"></span></button></th>
+              <th scope="col" aria-sort="none"><button type="button" class="sort-btn" data-key="city">City <span aria-hidden="true" class="sort-icon"></span></button></th>
+              <th scope="col" aria-sort="none"><button type="button" class="sort-btn" data-key="age">Age <span aria-hidden="true" class="sort-icon"></span></button></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <p id="table-empty" class="table-empty" hidden>No results found.</p>
+
+      <div class="pagination">
+        <button id="prev-page" class="btn" type="button">Previous</button>
+        <span id="page-status" role="status">Page 1 of 1</span>
+        <button id="next-page" class="btn" type="button">Next</button>
+      </div>
+      <p id="row-count" class="row-count"></p>
+    </section>
+  </main>
+</body>
+</html>
