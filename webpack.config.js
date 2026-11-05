@@ -86,6 +86,6 @@ export default {
           templateParameters: { nav: renderNav(page.name), pageButtons: renderPageButtons() },
         }),
     ),
-    new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
+    new MiniCssExtractPlugin({ filename: 'css/[name].css' }),
   ],
 };

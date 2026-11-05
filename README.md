@@ -57,7 +57,7 @@ Pages are discovered automatically; there is no list to update.
 
 1. Create `src/pages/<name>.html`. Put `<%= nav %>` where the navigation goes.
 2. Optional `<meta>` tags in its `<head>`: `nav-label` and `nav-order` (show it in the navigation), `home-button` (add a button for it on the home page).
-3. Optional `src/scripts/<name>.js` is loaded only on that page.
+3. Optional `src/scripts/<name>.js` is loaded only on that page. It can import its own stylesheet from `src/styles/` (shared styles live in `styles.css`).
 4. Add its specs in `tests/<name>/` (`desktop`, `mobile` and `accessibility`).
 
 Restart `npm run dev` after adding a page.
