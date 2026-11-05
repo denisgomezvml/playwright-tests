@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Links and buttons that open new tabs.">
+  <meta name="nav-label" content="New tabs">
+  <meta name="nav-order" content="100">
+  <meta name="home-button" content="Open new tabs">
+  <title>New tabs - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>New tabs</h1>
+    <p class="lead">Practice handling pages opened in a new tab.</p>
+
+    <section class="panel" aria-labelledby="link-title">
+      <h2 id="link-title">Link with target="_blank"</h2>
+      <a id="new-tab-link" href="new-tab.html?from=link" target="_blank" rel="noopener">Open details in a new tab</a>
+    </section>
+
+    <section class="panel" aria-labelledby="script-title">
+      <h2 id="script-title">Opened with a script</h2>
+      <button id="open-tab-btn" class="btn" type="button">Open tab with a button</button>
+    </section>
+  </main>
+</body>
+</html>
