@@ -53,6 +53,14 @@ Edit the files in `src/`. `site/` is generated, cleaned on every build and not c
 npm run build
 ```
 
+## Dev preview
+
+To see the site while you work, start the dev server. It serves the pages from memory at http://localhost:3000, opens the browser and reloads on every change in `src/`. It does not touch `site/`.
+
+```bash
+npm run dev
+```
+
 ## Reports
 
 After a run, open the HTML report. Traces are recorded on the first retry.
