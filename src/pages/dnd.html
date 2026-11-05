@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reorderable list and hover menu.">
+  <meta name="nav-label" content="Drag and hover">
+  <meta name="nav-order" content="110">
+  <meta name="home-button" content="Open drag and drop">
+  <title>Drag and hover - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Drag and drop and hover</h1>
+    <p class="lead">A reorderable list and a menu that opens on hover.</p>
+
+    <section class="panel" aria-labelledby="list-title">
+      <h2 id="list-title">Reorderable list</h2>
+      <p>Drag items to reorder them or use the Move buttons.</p>
+      <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+      <p id="order-status" class="dnd-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="menu-title">
+      <h2 id="menu-title">Hover menu</h2>
+      <div id="hover-menu" class="hover-menu">
+        <button id="menu-toggle" class="btn" type="button" aria-expanded="false" aria-controls="menu-items">Products</button>
+        <ul id="menu-items" class="menu-items" hidden>
+          <li><a href="#software">Software</a></li>
+          <li><a href="#hardware">Hardware</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
