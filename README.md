@@ -47,7 +47,7 @@ Available projects (defined in `playwright.config.ts`): `desktop` (runs `desktop
 
 ## Building the site
 
-Edit the files in `src/`, never in `site/` (it is regenerated and cleaned on every build).
+Edit the files in `src/`. `site/` is generated, cleaned on every build and not committed; CI builds it before running the tests.
 
 ```bash
 npm run build
