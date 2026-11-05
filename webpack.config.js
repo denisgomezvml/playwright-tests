@@ -37,7 +37,7 @@ const renderNav = (current) => {
     .map((page) => `      <a href="${page.file}"${page.name === current ? ' aria-current="page"' : ''}>${page.navLabel}</a>`)
     .join('\n');
   return `<nav aria-label="Main navigation">
-    <a class="brand" href="index.html">Test Site</a>
+    <a class="brand" href="index.html">VML QA</a>
     <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
     <div id="nav-links">
 ${links}
@@ -49,7 +49,7 @@ const renderPageButtons = () =>
   pages
     .filter((page) => page.homeButton)
     .sort((a, b) => a.navOrder - b.navOrder)
-    .map((page) => `        <a class="cta" href="${page.file}">${page.homeButton}</a>`)
+    .map((page) => `        <a class="btn-secondary" href="${page.file}">${page.homeButton}</a>`)
     .join('\n');
 
 const entry = { main: './src/scripts/main.js' };
