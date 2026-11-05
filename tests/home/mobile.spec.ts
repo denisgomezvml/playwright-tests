@@ -2,7 +2,7 @@ import { test, expect, devices } from '@playwright/test';
 
 test.use({ ...devices['iPhone 13'] });
 
-test.describe('Mobile', () => {
+test.describe('Mobile - Home page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
@@ -17,7 +17,7 @@ test.describe('Mobile', () => {
     await test.step('Menu is initially collapsed', async () => {
       await expect(toggle).toBeVisible();
       await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-      await expect(page.getByRole('link', { name: 'About' })).toBeHidden();
+      await expect(page.getByRole('link', { name: 'Hero banner', exact: true })).toBeHidden();
     });
 
     await test.step('Tap the hamburger button', async () => {
@@ -26,7 +26,7 @@ test.describe('Mobile', () => {
 
     await test.step('Menu is expanded', async () => {
       await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-      await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+      await expect(page.getByRole('link', { name: 'Hero banner', exact: true })).toBeVisible();
     });
   });
 
@@ -35,17 +35,5 @@ test.describe('Mobile', () => {
     await toggle.tap();
     await toggle.tap();
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-  });
-
-  test('should submit the form using touch', async ({ page }) => {
-    await page.getByLabel('Name').fill('Jane Doe');
-    await page.getByLabel('Email').fill('jane@test.com');
-    await page.getByRole('button', { name: 'Submit' }).tap();
-    await expect(page.locator('#result')).toHaveText('Form submitted successfully!');
-  });
-
-  test('should show an error when fields are empty', async ({ page }) => {
-    await page.getByRole('button', { name: 'Submit' }).tap();
-    await expect(page.locator('#error')).toHaveText('Name and email are required.');
   });
 });

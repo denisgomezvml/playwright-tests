@@ -11,6 +11,7 @@ export default {
     main: './src/scripts/main.js',
     contact: './src/scripts/contact.js',
     form: './src/scripts/form.js',
+    hero: './src/scripts/hero.js',
   },
   output: {
     path: path.resolve(dirname, 'site'),
@@ -31,13 +32,25 @@ export default {
     new HtmlWebpackPlugin({
       template: './src/pages/index.html',
       filename: 'index.html',
-      chunks: ['main', 'contact'],
+      chunks: ['main'],
       scriptLoading: 'defer',
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/form.html',
       filename: 'form.html',
       chunks: ['main', 'form'],
+      scriptLoading: 'defer',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/contact.html',
+      filename: 'contact.html',
+      chunks: ['main', 'contact'],
+      scriptLoading: 'defer',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/hero.html',
+      filename: 'hero.html',
+      chunks: ['main', 'hero'],
       scriptLoading: 'defer',
     }),
     new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
