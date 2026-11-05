@@ -38,8 +38,11 @@ test.describe('Accessibility - Home page', () => {
     await expect(page.getByRole('link', { name: 'Contact', exact: true })).toBeFocused();
   });
 
-  test('should label the pages section and expose all page buttons as links', async ({ page }) => {
-    const pages = page.getByRole('region', { name: 'Explore the pages' });
-    await expect(pages.getByRole('link')).toHaveCount(3);
+  test('should label the pages section and expose every page button as a link', async ({ page }) => {
+    const pageButtons = page.getByRole('region', { name: 'Explore the pages' }).getByRole('link');
+    const navLinks = page.locator('#nav-links a');
+    // Every page in the navigation except Home has a button on the home page.
+    expect(await pageButtons.count()).toBeGreaterThanOrEqual(3);
+    await expect(pageButtons).toHaveCount((await navLinks.count()) - 1);
   });
 });
