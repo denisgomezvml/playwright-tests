@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An iframe with a form and a Shadow DOM component.">
+  <meta name="nav-label" content="Frames">
+  <meta name="nav-order" content="80">
+  <meta name="home-button" content="Open iframe and shadow DOM">
+  <title>Iframe and Shadow DOM - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Iframe and Shadow DOM</h1>
+    <p class="lead">A form living inside an iframe and a component with a shadow root.</p>
+
+    <section class="panel" aria-labelledby="iframe-title">
+      <h2 id="iframe-title">Newsletter iframe</h2>
+      <iframe id="newsletter-frame" class="frame" title="Newsletter signup" src="frame-form.html"></iframe>
+    </section>
+
+    <section class="panel" aria-labelledby="shadow-title">
+      <h2 id="shadow-title">Shadow DOM component</h2>
+      <feedback-card></feedback-card>
+    </section>
+  </main>
+</body>
+</html>

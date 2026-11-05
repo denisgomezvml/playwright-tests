@@ -15,12 +15,12 @@ export default defineConfig({
   projects: [
     {
       name: 'desktop',
-      testMatch: ['desktop.spec.ts', 'accessibility.spec.ts'],
+      testMatch: ['**/desktop.spec.ts', '**/accessibility.spec.ts'],
       use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 720 } },
     },
     {
       name: 'mobile',
-      testMatch: 'mobile.spec.ts',
+      testMatch: '**/mobile.spec.ts',
       use: { ...devices['iPhone 13'] },
     },
   ],

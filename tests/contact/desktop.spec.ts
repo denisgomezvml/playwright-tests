@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Desktop', () => {
+test.describe('Desktop - Contact page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/contact.html');
   });
 
   test('should display success message after form submission', async ({ page }) => {
@@ -37,13 +37,5 @@ test.describe('Desktop', () => {
     await test.step('Verify validation error is shown', async () => {
       await expect(page.locator('#error')).toHaveText('Please enter a valid email address.');
     });
-  });
-
-  test('should display desktop-only content', async ({ page }) => {
-    await expect(page.locator('.hidden-mobile')).toBeVisible();
-  });
-
-  test('should hide the hamburger menu', async ({ page }) => {
-    await expect(page.getByRole('button', { name: 'Toggle menu' })).toBeHidden();
   });
 });
