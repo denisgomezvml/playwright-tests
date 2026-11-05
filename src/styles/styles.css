@@ -92,7 +92,7 @@ h2 { margin-top: 0; }
   font-weight: 600;
   cursor: pointer;
 }
-.btn:hover:not(:disabled) { background: var(--brand-hover); }
+.btn:hover:not(:disabled) { background: #4a4eb0; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .pages { margin-top: 2rem; }
