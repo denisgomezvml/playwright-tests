@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Native alert, confirm and prompt dialogs plus an HTML modal.">
+  <meta name="nav-label" content="Dialogs">
+  <meta name="nav-order" content="70">
+  <meta name="home-button" content="Open dialogs">
+  <title>Dialogs - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Dialogs and modal</h1>
+    <p class="lead">Native browser dialogs and a modal built with HTML.</p>
+
+    <section class="panel" aria-labelledby="native-title">
+      <h2 id="native-title">Native dialogs</h2>
+      <div class="dialog-actions">
+        <button id="alert-btn" class="btn" type="button">Show alert</button>
+        <button id="confirm-btn" class="btn" type="button">Show confirm</button>
+        <button id="prompt-btn" class="btn" type="button">Show prompt</button>
+      </div>
+      <p id="dialog-result" class="dialog-result" role="status" aria-live="polite">No dialog shown yet.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="modal-title-section">
+      <h2 id="modal-title-section">HTML modal</h2>
+      <button id="open-modal" class="btn" type="button">Open modal</button>
+      <p id="modal-result" class="dialog-result" role="status" aria-live="polite">Modal closed.</p>
+    </section>
+
+    <dialog id="modal" class="modal" aria-labelledby="modal-title">
+      <h2 id="modal-title">Subscribe to updates</h2>
+      <p>Do you want to receive our newsletter?</p>
+      <div class="dialog-actions">
+        <button id="modal-accept" class="btn" type="button">Accept</button>
+        <button id="modal-close" class="btn btn-secondary" type="button">Close</button>
+      </div>
+    </dialog>
+  </main>
+</body>
+</html>
