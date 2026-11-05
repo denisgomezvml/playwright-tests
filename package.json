@@ -8,7 +8,8 @@
     "test:headed": "npm run build && playwright test --headed",
     "build": "webpack",
     "pretest": "npm run build",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "test:dev": "playwright test -c playwright.dev.config.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
