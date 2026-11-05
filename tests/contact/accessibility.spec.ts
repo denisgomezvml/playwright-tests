@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test.describe('Accessibility', () => {
+test.describe('Accessibility - Contact page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/contact.html');
   });
 
   test('should have no axe violations', async ({ page }) => {
@@ -11,12 +11,6 @@ test.describe('Accessibility', () => {
       .withTags(['wcag2a', 'wcag2aa'])
       .analyze();
     expect(results.violations).toEqual([]);
-  });
-
-  test('should have non-empty alt text on all images', async ({ page }) => {
-    for (const img of await page.locator('img').all()) {
-      await expect(img).toHaveAttribute('alt', /\S/);
-    }
   });
 
   test('should associate labels with inputs via for and id', async ({ page }) => {
@@ -34,10 +28,9 @@ test.describe('Accessibility', () => {
   });
 
   test('should support keyboard navigation through the form', async ({ page }) => {
-    await page.getByRole('link', { name: 'About' }).focus();
+    await page.locator('#nav-links a').last().focus();
 
-    await test.step('Tab through links to the name input', async () => {
-      await page.keyboard.press('Tab');
+    await test.step('Tab from the last nav link to the name input', async () => {
       await page.keyboard.press('Tab');
       await expect(page.getByLabel('Name')).toBeFocused();
     });

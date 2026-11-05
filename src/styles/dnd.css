@@ -1,0 +1,10 @@
+.task-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.task-item { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.6rem 0.9rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); cursor: grab; }
+.task-item.dragging { opacity: 0.5; }
+.task-item .task-actions { display: flex; gap: 0.4rem; }
+.task-item button { padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+.dnd-status { min-height: 1.5em; margin-top: 1rem; color: var(--text-soft); }
+.hover-menu { position: relative; display: inline-block; }
+.menu-items { position: absolute; top: 100%; left: 0; z-index: 5; min-width: 12rem; margin: 0.25rem 0 0; padding: 0.4rem; list-style: none; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); }
+.menu-items[hidden] { display: none; }
+.menu-items a { display: block; padding: 0.5rem 0.75rem; border-radius: 4px; }

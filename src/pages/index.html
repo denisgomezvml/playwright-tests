@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A dark-themed demo site used to practice Playwright testing.">
+  <meta name="nav-label" content="Home">
+  <meta name="nav-order" content="0">
+  <title>Playwright Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Playwright Test Site</h1>
+    <p class="lead">A small dark-themed site built to practice desktop, mobile and accessibility testing.</p>
+
+    <section id="pages" class="pages" aria-labelledby="pages-title">
+      <h2 id="pages-title">Explore the pages</h2>
+      <div class="pages-actions">
+<%= pageButtons %>
+      </div>
+    </section>
+
+    <div class="cards">
+      <article class="card card-mint">
+        <h3>Desktop</h3>
+        <p>Layouts and interactions checked at 1280x720.</p>
+      </article>
+      <article class="card card-peach">
+        <h3>Mobile</h3>
+        <p>Touch interactions and a responsive menu.</p>
+      </article>
+      <article class="card card-lavender">
+        <h3>Accessibility</h3>
+        <p>Labels, ARIA and keyboard support audited with axe.</p>
+      </article>
+    </div>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>This site has no business logic on purpose: it only exists to be tested.</p>
+      <p class="hidden-mobile" id="desktop-only">This content is only visible on desktop screens.</p>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A hero banner used to practice Playwright component testing.">
+  <meta name="nav-label" content="Hero banner">
+  <meta name="nav-order" content="20">
+  <meta name="home-button" content="Open hero banner">
+  <title>Hero banner - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-eyebrow">New release</p>
+        <h1 id="hero-title">Build faster with confidence</h1>
+        <p class="hero-text">A hero banner with a headline, supporting text, a primary action and expandable details.</p>
+        <div class="hero-actions">
+          <a id="hero-cta" class="cta" href="contact.html">Get started</a>
+          <button id="hero-details-toggle" class="btn-secondary" type="button" aria-expanded="false" aria-controls="hero-details">Show details</button>
+        </div>
+        <div id="hero-details" class="hero-details" hidden>
+          <p>Hero banners highlight the most important message of a page. This one is fully keyboard accessible.</p>
+        </div>
+      </div>
+      <svg class="hero-art hidden-mobile" role="img" aria-label="Abstract illustration of overlapping violet circles" viewBox="0 0 200 200" width="200" height="200">
+        <circle cx="75" cy="100" r="60" fill="#5b5fc7"/>
+        <circle cx="125" cy="100" r="60" fill="#a6a7dc" fill-opacity="0.7"/>
+      </svg>
+    </section>
+  </main>
+</body>
+</html>
