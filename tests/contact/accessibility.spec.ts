@@ -28,7 +28,7 @@ test.describe('Accessibility - Contact page', () => {
   });
 
   test('should support keyboard navigation through the form', async ({ page }) => {
-    await page.getByRole('link', { name: 'Form demo' }).focus();
+    await page.locator('#nav-links a').last().focus();
 
     await test.step('Tab from the last nav link to the name input', async () => {
       await page.keyboard.press('Tab');

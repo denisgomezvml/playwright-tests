@@ -4,19 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A dark-themed demo site used to practice Playwright testing.">
+  <meta name="nav-label" content="Home">
+  <meta name="nav-order" content="0">
   <title>Playwright Test Site</title>
 </head>
 <body>
-  <nav aria-label="Main navigation">
-    <a class="brand" href="index.html">Test Site</a>
-    <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
-    <div id="nav-links">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="hero.html">Hero banner</a>
-      <a href="contact.html">Contact</a>
-      <a href="form.html">Form demo</a>
-    </div>
-  </nav>
+  <%= nav %>
 
   <main>
     <h1>Playwright Test Site</h1>
@@ -25,9 +18,7 @@
     <section id="pages" class="pages" aria-labelledby="pages-title">
       <h2 id="pages-title">Explore the pages</h2>
       <div class="pages-actions">
-        <a class="cta" href="hero.html">Open hero banner</a>
-        <a class="cta" href="contact.html">Open contact form</a>
-        <a class="cta" href="form.html">Open form demo</a>
+<%= pageButtons %>
       </div>
     </section>
 
