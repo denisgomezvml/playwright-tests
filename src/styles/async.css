@@ -1,0 +1,3 @@
+.async-result { min-height: 1.5em; margin-top: 1rem; color: var(--success); font-weight: 600; }
+.async-result[aria-busy="true"] { color: var(--text-soft); }
+.async-error { min-height: 1.5em; margin-top: 1rem; color: var(--error); font-weight: 600; }
