@@ -82,6 +82,19 @@ h2 { margin-top: 0; }
 }
 .cta:hover { background: var(--brand-hover); }
 
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--brand);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) { background: var(--brand-hover); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
 .pages { margin-top: 2rem; }
 .pages-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .pages-actions .cta { margin-top: 0; }
