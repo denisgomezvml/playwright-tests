@@ -36,4 +36,9 @@ test.describe('Mobile - Home page', () => {
     await toggle.tap();
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   });
+
+  test('should open the contact page by tapping its button', async ({ page }) => {
+    await page.getByRole('link', { name: 'Open contact form' }).tap();
+    await expect(page).toHaveURL(/contact\.html$/);
+  });
 });

@@ -19,8 +19,14 @@ test.describe('Desktop - Home page', () => {
     await expect(page.getByRole('heading', { name: 'Contact us' })).toBeVisible();
   });
 
-  test('should navigate to the hero banner page from the call to action', async ({ page }) => {
-    await page.getByRole('link', { name: 'See the hero banner' }).click();
-    await expect(page).toHaveURL(/hero\.html$/);
-  });
+  for (const { button, url } of [
+    { button: 'Open hero banner', url: /hero\.html$/ },
+    { button: 'Open contact form', url: /contact\.html$/ },
+    { button: 'Open form demo', url: /form\.html$/ },
+  ]) {
+    test(`should navigate using the "${button}" button`, async ({ page }) => {
+      await page.getByRole('region', { name: 'Explore the pages' }).getByRole('link', { name: button }).click();
+      await expect(page).toHaveURL(url);
+    });
+  }
 });

@@ -37,4 +37,9 @@ test.describe('Accessibility - Home page', () => {
     await page.keyboard.press('Tab');
     await expect(page.getByRole('link', { name: 'Contact', exact: true })).toBeFocused();
   });
+
+  test('should label the pages section and expose all page buttons as links', async ({ page }) => {
+    const pages = page.getByRole('region', { name: 'Explore the pages' });
+    await expect(pages.getByRole('link')).toHaveCount(3);
+  });
 });
