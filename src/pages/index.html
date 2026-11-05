@@ -11,8 +11,9 @@
     <a class="brand" href="index.html">Test Site</a>
     <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
     <div id="nav-links">
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="hero.html">Hero banner</a>
+      <a href="contact.html">Contact</a>
       <a href="form.html">Form demo</a>
     </div>
   </nav>
@@ -20,7 +21,7 @@
   <main>
     <h1>Playwright Test Site</h1>
     <p class="lead">A small dark-themed site built to practice desktop, mobile and accessibility testing.</p>
-    <a class="cta" href="form.html">Try the form demo</a>
+    <a class="cta" href="hero.html">See the hero banner</a>
 
     <div class="cards">
       <article class="card card-mint">
@@ -43,18 +44,6 @@
       <p class="hidden-mobile" id="desktop-only">This content is only visible on desktop screens.</p>
     </section>
 
-    <section id="contact" class="panel">
-      <h2>Contact</h2>
-      <form id="contact-form" novalidate>
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" autocomplete="name">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email">
-        <button id="submit-btn" type="submit">Submit</button>
-      </form>
-      <p id="error" class="form-error" role="alert"></p>
-      <p id="result" class="form-success" role="status"></p>
-    </section>
   </main>
 </body>
 </html>

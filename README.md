@@ -40,7 +40,7 @@ npm run test:dev
 npx playwright test tests/form/accessibility.spec.ts
 
 # All tests of one page
-npx playwright test tests/form
+npx playwright test tests/hero
 
 # A single project (device or browser)
 npx playwright test --project=mobile
@@ -80,16 +80,15 @@ npx playwright show-report
 ```text
 .
 ├── src/                   # Site sources
-│   ├── pages/             # HTML pages (index.html, form.html)
+│   ├── pages/             # HTML pages (index, hero, contact, form)
 │   ├── scripts/           # JavaScript entry points
 │   └── styles/            # CSS
 ├── site/                  # Webpack build output, served by the tests
-├── tests/
-│   ├── home/              # Tests for index.html
-│   │   ├── desktop.spec.ts
-│   │   ├── mobile.spec.ts
-│   │   └── accessibility.spec.ts
-│   └── form/              # Tests for form.html (same three files)
+├── tests/                 # One folder per page, each with desktop, mobile and accessibility specs
+│   ├── home/              # index.html
+│   ├── hero/              # hero.html (hero banner)
+│   ├── contact/           # contact.html
+│   └── form/              # form.html (registration form)
 ├── webpack.config.js      # Builds src/ into site/
 ├── playwright.config.ts   # Projects, devices, web server, reporters
 ├── tsconfig.json
@@ -98,9 +97,9 @@ npx playwright show-report
 
 ## What the tests check
 
-- Desktop (1280x720): contact form and registration form (`/form.html`) happy paths and validation errors, desktop-only content visible, hamburger menu hidden, navigation between pages.
-- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, form submissions and validation on both forms.
-- Accessibility: automated axe-core scans against WCAG rules. Besides the axe scan, explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes and keyboard navigation with Tab, and `aria-invalid` handling on the registration form. They do not replace manual testing with a screen reader or keyboard.
+- Desktop (1280x720): navigation between pages, the hero banner (content, call to action, show/hide details), the contact form (`/contact.html`) and the registration form (`/form.html`): happy paths and validation errors.
+- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, hero banner without horizontal overflow, and form submissions and validation on both forms.
+- Accessibility: automated axe-core scans against WCAG rules. Besides the axe scan, explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes and keyboard navigation with Tab, and `aria-invalid` handling on the registration form, and the hero banner's region label and `aria-expanded` toggle. They do not replace manual testing with a screen reader or keyboard.
 
 ## Tech stack
 

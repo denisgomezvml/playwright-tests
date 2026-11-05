@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A contact form used to practice Playwright form testing.">
+  <title>Contact - Test Site</title>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">Test Site</a>
+    <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
+    <div id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="hero.html">Hero banner</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="form.html">Form demo</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Contact us</h1>
+    <p class="lead">Send us your name and email to try a simple validated form.</p>
+
+    <section id="contact" class="panel">
+      <form id="contact-form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+        <button id="submit-btn" type="submit">Submit</button>
+      </form>
+      <p id="error" class="form-error" role="alert"></p>
+      <p id="result" class="form-success" role="status"></p>
+    </section>
+  </main>
+</body>
+</html>
