@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="File upload input and a CSV download link.">
+  <meta name="nav-label" content="Files">
+  <meta name="nav-order" content="90">
+  <meta name="home-button" content="Open file upload and download">
+  <title>Files - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>File upload and download</h1>
+    <p class="lead">Upload a CSV or text file and download a sample CSV.</p>
+
+    <section class="panel" aria-labelledby="upload-title">
+      <h2 id="upload-title">Upload</h2>
+      <label for="file-input">Choose a file (.csv or .txt)</label>
+      <input id="file-input" type="file" accept=".csv,.txt">
+      <p id="upload-error" class="file-error" role="alert"></p>
+      <p id="upload-result" class="file-result" role="status" aria-live="polite">No file selected.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="download-title">
+      <h2 id="download-title">Download</h2>
+      <a id="download-link" class="btn" href="#" download="report.csv">Download CSV</a>
+    </section>
+  </main>
+</body>
+</html>
