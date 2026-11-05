@@ -65,7 +65,10 @@ npx playwright show-report
 
 ```text
 .
-├── src/                   # Site sources (index.html, main.js, styles.css)
+├── src/                   # Site sources
+│   ├── pages/             # HTML pages (index.html, form.html)
+│   ├── scripts/           # JavaScript entry points
+│   └── styles/            # CSS
 ├── site/                  # Webpack build output, served by the tests
 ├── tests/
 │   ├── desktop.spec.ts    # Desktop scenarios
@@ -79,9 +82,9 @@ npx playwright show-report
 
 ## What the tests check
 
-- Desktop (1280x720): contact form happy path and validation errors, desktop-only content visible, hamburger menu hidden.
-- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, form submission and validation.
-- Accessibility: automated axe-core scans against WCAG rules. Besides the axe scan, explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes and keyboard navigation with Tab. They do not replace manual testing with a screen reader or keyboard.
+- Desktop (1280x720): contact form and registration form (`/form.html`) happy paths and validation errors, desktop-only content visible, hamburger menu hidden, navigation between pages.
+- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, form submissions and validation on both forms.
+- Accessibility: automated axe-core scans against WCAG rules. Besides the axe scan, explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes and keyboard navigation with Tab, and `aria-invalid` handling on the registration form. They do not replace manual testing with a screen reader or keyboard.
 
 ## Tech stack
 

@@ -7,17 +7,32 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
   mode: 'production',
-  entry: './src/main.js',
+  entry: {
+    main: './src/scripts/main.js',
+    contact: './src/scripts/contact.js',
+    form: './src/scripts/form.js',
+  },
   output: {
     path: path.resolve(dirname, 'site'),
-    filename: 'main.js',
+    filename: 'js/[name].js',
     clean: true,
   },
   module: {
     rules: [{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] }],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html', scriptLoading: 'defer' }),
-    new MiniCssExtractPlugin({ filename: 'styles.css' }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/index.html',
+      filename: 'index.html',
+      chunks: ['main', 'contact'],
+      scriptLoading: 'defer',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/form.html',
+      filename: 'form.html',
+      chunks: ['main', 'form'],
+      scriptLoading: 'defer',
+    }),
+    new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
   ],
 };
