@@ -33,6 +33,9 @@ npm run test:ui
 # Visible browser
 npm run test:headed
 
+# Against the dev server (no build step, live-reload server on port 3000)
+npm run test:dev
+
 # A single file
 npx playwright test tests/accessibility.spec.ts
 
@@ -55,7 +58,7 @@ npm run build
 
 ## Dev preview
 
-To see the site while you work, start the dev server. It serves the pages from memory at http://localhost:3000, opens the browser and reloads on every change in `src/`. It does not touch `site/`.
+To see the site while you work, start the dev server. It serves the pages from memory at http://localhost:3000, opens the browser and reloads on every change in `src/`. It does not touch `site/`. `npm run test:dev` runs the Playwright suite against this server, starting it automatically (or reusing it if `npm run dev` is already running). Extra flags work too, e.g. `npm run test:dev -- --ui`.
 
 ```bash
 npm run dev
