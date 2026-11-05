@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playwright Test Site</title>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
+    <div id="nav-links">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Playwright Test Site</h1>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="hidden-mobile" id="desktop-only">This content is only visible on desktop screens.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+        <button id="submit-btn" type="submit">Submit</button>
+      </form>
+      <p id="error" role="alert"></p>
+      <p id="result" role="status"></p>
+    </section>
+  </main>
+
+</body>
+</html>
