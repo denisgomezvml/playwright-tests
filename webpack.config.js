@@ -8,13 +8,13 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 export default {
   mode: 'production',
   entry: {
-    main: './src/main.js',
-    contact: './src/contact.js',
-    form: './src/form.js',
+    main: './src/scripts/main.js',
+    contact: './src/scripts/contact.js',
+    form: './src/scripts/form.js',
   },
   output: {
     path: path.resolve(dirname, 'site'),
-    filename: '[name].js',
+    filename: 'js/[name].js',
     clean: true,
   },
   module: {
@@ -22,17 +22,17 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/pages/index.html',
       filename: 'index.html',
       chunks: ['main', 'contact'],
       scriptLoading: 'defer',
     }),
     new HtmlWebpackPlugin({
-      template: './src/form.html',
+      template: './src/pages/form.html',
       filename: 'form.html',
       chunks: ['main', 'form'],
       scriptLoading: 'defer',
     }),
-    new MiniCssExtractPlugin({ filename: 'styles.css' }),
+    new MiniCssExtractPlugin({ filename: 'css/styles.css' }),
   ],
 };

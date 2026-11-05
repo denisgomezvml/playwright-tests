@@ -65,7 +65,10 @@ npx playwright show-report
 
 ```text
 .
-├── src/                   # Site sources: index.html, form.html, scripts and styles.css
+├── src/                   # Site sources
+│   ├── pages/             # HTML pages (index.html, form.html)
+│   ├── scripts/           # JavaScript entry points
+│   └── styles/            # CSS
 ├── site/                  # Webpack build output, served by the tests
 ├── tests/
 │   ├── desktop.spec.ts    # Desktop scenarios
