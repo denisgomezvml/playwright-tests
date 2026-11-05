@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Late-loading content and intermittent failures to practice auto-waiting.">
+  <meta name="nav-label" content="Async content">
+  <meta name="nav-order" content="60">
+  <meta name="home-button" content="Open async content">
+  <title>Async content - Test Site</title>
+</head>
+<body>
+  <%= nav %>
+
+  <main>
+    <h1>Async content</h1>
+    <p class="lead">Content that appears late and a request that fails every other time.</p>
+
+    <section class="panel" aria-labelledby="delayed-title">
+      <h2 id="delayed-title">Delayed result</h2>
+      <p>The result appears 2 seconds after clicking.</p>
+      <button id="load-delayed" class="btn" type="button">Load delayed result</button>
+      <p id="delayed-status" class="async-result" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="flaky-title">
+      <h2 id="flaky-title">Flaky request</h2>
+      <p>Odd attempts fail and even attempts succeed, so retrying always works.</p>
+      <button id="load-flaky" class="btn" type="button">Load flaky data</button>
+      <p id="flaky-error" class="async-error" role="alert"></p>
+      <p id="flaky-status" class="async-result" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>
