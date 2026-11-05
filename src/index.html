@@ -3,26 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A pastel demo site used to practice Playwright testing.">
   <title>Playwright Test Site</title>
 </head>
 <body>
   <nav aria-label="Main navigation">
+    <a class="brand" href="index.html">Pastel Test Site</a>
     <button id="toggle-menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">Menu</button>
     <div id="nav-links">
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="form.html">Form demo</a>
     </div>
   </nav>
 
   <main>
     <h1>Playwright Test Site</h1>
+    <p class="lead">A small, soft-colored site built to practice desktop, mobile and accessibility testing.</p>
+    <a class="cta" href="form.html">Try the form demo</a>
 
-    <section id="about">
+    <div class="cards">
+      <article class="card card-mint">
+        <h3>Desktop</h3>
+        <p>Layouts and interactions checked at 1280x720.</p>
+      </article>
+      <article class="card card-peach">
+        <h3>Mobile</h3>
+        <p>Touch interactions and a responsive menu.</p>
+      </article>
+      <article class="card card-lavender">
+        <h3>Accessibility</h3>
+        <p>Labels, ARIA and keyboard support audited with axe.</p>
+      </article>
+    </div>
+
+    <section id="about" class="panel">
       <h2>About</h2>
+      <p>This site has no business logic on purpose: it only exists to be tested.</p>
       <p class="hidden-mobile" id="desktop-only">This content is only visible on desktop screens.</p>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="panel">
       <h2>Contact</h2>
       <form id="contact-form" novalidate>
         <label for="name">Name</label>
@@ -31,10 +52,9 @@
         <input id="email" name="email" type="email" autocomplete="email">
         <button id="submit-btn" type="submit">Submit</button>
       </form>
-      <p id="error" role="alert"></p>
-      <p id="result" role="status"></p>
+      <p id="error" class="form-error" role="alert"></p>
+      <p id="result" class="form-success" role="status"></p>
     </section>
   </main>
-
 </body>
 </html>
