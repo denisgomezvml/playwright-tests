@@ -1,0 +1,23 @@
+.table-scroll { overflow-x: auto; margin-top: 1rem; }
+table { width: 100%; border-collapse: collapse; }
+caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+th { background: var(--surface-2); padding: 0; }
+.sort-btn {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.sort-btn:hover { background: var(--border); }
+th[aria-sort="ascending"] .sort-icon::after { content: "▲"; }
+th[aria-sort="descending"] .sort-icon::after { content: "▼"; }
+tbody tr:hover { background: var(--surface-2); }
+.table-empty { margin-top: 1rem; color: var(--text-soft); }
+.pagination { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.row-count { color: var(--text-soft); }
