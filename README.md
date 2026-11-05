@@ -37,7 +37,10 @@ npm run test:headed
 npm run test:dev
 
 # A single file
-npx playwright test tests/accessibility.spec.ts
+npx playwright test tests/form/accessibility.spec.ts
+
+# All tests of one page
+npx playwright test tests/form
 
 # A single project (device or browser)
 npx playwright test --project=mobile
@@ -82,9 +85,11 @@ npx playwright show-report
 │   └── styles/            # CSS
 ├── site/                  # Webpack build output, served by the tests
 ├── tests/
-│   ├── desktop.spec.ts    # Desktop scenarios
-│   ├── mobile.spec.ts     # Mobile viewport scenarios
-│   └── accessibility.spec.ts  # axe-core WCAG audits
+│   ├── home/              # Tests for index.html
+│   │   ├── desktop.spec.ts
+│   │   ├── mobile.spec.ts
+│   │   └── accessibility.spec.ts
+│   └── form/              # Tests for form.html (same three files)
 ├── webpack.config.js      # Builds src/ into site/
 ├── playwright.config.ts   # Projects, devices, web server, reporters
 ├── tsconfig.json
