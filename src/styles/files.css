@@ -1,0 +1,4 @@
+.file-error { min-height: 1.5em; margin-top: 0.75rem; color: var(--error); font-weight: 600; }
+.file-result { margin-top: 0.5rem; color: var(--success); font-weight: 600; }
+label[for="file-input"] { display: block; margin-bottom: 0.5rem; }
+a.btn { display: inline-block; text-decoration: none; }
