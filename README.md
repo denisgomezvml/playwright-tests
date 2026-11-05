@@ -1,6 +1,6 @@
 # Playwright Tests
 
-End-to-end test suite written with Playwright and TypeScript. It runs against a static HTML site included in the repository, so it needs no external services. Tests cover three areas: desktop (Chromium), mobile (iPhone 13 emulation on WebKit) and accessibility (WCAG) audits with axe-core.
+End-to-end test suite written with Playwright and TypeScript. It runs against a static HTML site included in the repository, so it needs no external services. The site has a page per testing topic (forms, tables, dialogs, iframes, uploads, new tabs, drag and drop...). Tests cover three areas: desktop (Chromium), mobile (iPhone 13 emulation on WebKit) and accessibility (WCAG) audits with axe-core.
 
 ## Prerequisites
 
@@ -51,6 +51,24 @@ npx playwright test -g "success message"
 
 Available projects (defined in `playwright.config.ts`): `desktop` (runs `desktop.spec.ts` and `accessibility.spec.ts`) and `mobile` (runs `mobile.spec.ts`).
 
+## Pages
+
+| Page | Practice topic |
+|---|---|
+| `index.html` | Home with a button per page, responsive navigation |
+| `hero.html` | Hero banner, call to action, show/hide details |
+| `contact.html` | Contact form with validation |
+| `form.html` | Registration form with `aria-invalid` handling |
+| `table.html` | Pagination, column sorting and text filter |
+| `async.html` | Delayed result and intermittent failures (auto-waiting, `expect.toPass`, `page.clock`) |
+| `dialogs.html` | Native `alert`/`confirm`/`prompt` and an HTML modal |
+| `frames.html` | Iframe form (`frame-form.html`) and a Shadow DOM component |
+| `files.html` | File upload input and CSV download link |
+| `tabs.html` | `target="_blank"` link and `window.open` (`new-tab.html`) |
+| `dnd.html` | Drag and drop list and hover menu |
+
+`frame-form.html` and `new-tab.html` are helper pages: they have no navigation entry or home button.
+
 ## Adding a page
 
 Pages are discovered automatically; there is no list to update.
@@ -91,7 +109,7 @@ npx playwright show-report
 ```text
 .
 ├── src/                   # Site sources
-│   ├── pages/             # HTML pages (index, hero, contact, form)
+│   ├── pages/             # HTML pages (see the Pages table)
 │   ├── scripts/           # JavaScript entry points
 │   └── styles/            # CSS
 ├── site/                  # Webpack build output, served by the tests
@@ -99,7 +117,14 @@ npx playwright show-report
 │   ├── home/              # index.html
 │   ├── hero/              # hero.html (hero banner)
 │   ├── contact/           # contact.html
-│   └── form/              # form.html (registration form)
+│   ├── form/              # form.html (registration form)
+│   ├── table/             # table.html
+│   ├── async/             # async.html
+│   ├── dialogs/           # dialogs.html
+│   ├── frames/            # frames.html (and frame-form.html)
+│   ├── files/             # files.html
+│   ├── tabs/              # tabs.html (and new-tab.html)
+│   └── dnd/               # dnd.html
 ├── webpack.config.js      # Builds src/ into site/
 ├── playwright.config.ts   # Projects, devices, web server, reporters
 ├── tsconfig.json
@@ -108,9 +133,9 @@ npx playwright show-report
 
 ## What the tests check
 
-- Desktop (1280x720): navigation between pages, the hero banner (content, call to action, show/hide details), the contact form (`/contact.html`) and the registration form (`/form.html`): happy paths and validation errors.
-- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, hero banner without horizontal overflow, and form submissions and validation on both forms.
-- Accessibility: automated axe-core scans against WCAG rules. Besides the axe scan, explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes and keyboard navigation with Tab, and `aria-invalid` handling on the registration form, and the hero banner's region label and `aria-expanded` toggle. They do not replace manual testing with a screen reader or keyboard.
+- Desktop (1280x720): navigation between pages, the hero banner, the contact and registration forms (happy paths and validation errors), table pagination/sorting/filtering, delayed and flaky content, native dialogs and the HTML modal, iframe and shadow DOM interaction, file upload and CSV download, new tabs (`context.waitForEvent('page')`), drag and drop and the hover menu.
+- Mobile (iPhone 13, using `.tap()`): `.hidden-mobile` content hidden, hamburger menu toggling with `aria-expanded`, no horizontal overflow, and the touch equivalent of each page's main flow.
+- Accessibility: automated axe-core scans against WCAG rules on every page, including states such as an open modal, validation errors or an open menu. Explicit tests check image `alt` text, label `for`/`id` association, ARIA attributes, live regions, focus management and keyboard navigation with Tab. They do not replace manual testing with a screen reader or keyboard.
 
 ## Tech stack
 
